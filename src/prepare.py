@@ -8,7 +8,7 @@ import xml.etree.ElementTree
 import yaml
 
 params = yaml.safe_load(open("params.yaml"))["prepare"]
-
+print("v2")
 if len(sys.argv) != 2:
     sys.stderr.write("Arguments error. Usage:\n")
     sys.stderr.write("\tpython prepare.py data-file\n")

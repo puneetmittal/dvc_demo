@@ -4,45 +4,45 @@ stages:
     cmd: python3 src/prepare.py data/data.xml
     deps:
     - path: data/data.xml
-      md5: 692d08eebd94ca95202ebef517fcdab7
-      size: 11776211
+      md5: 76e2216af52e34ee2b0c0fdae82a51a3
+      size: 7549901
     - path: src/prepare.py
-      md5: f09ea0c15980b43010257ccb9f0055e2
-      size: 1576
+      md5: 4797ebf046d4759be155ffce19857caa
+      size: 1587
     params:
       params.yaml:
         prepare.seed: 20170428
         prepare.split: 0.2
     outs:
     - path: data/prepared
-      md5: 03d41cb37d1af28bf8872ff36367765d.dir
-      size: 6871874
+      md5: a21aba1de60bcc0108326750d789ad47.dir
+      size: 4403350
       nfiles: 2
   featurize:
     cmd: python3 src/featurization.py data/prepared data/features
     deps:
     - path: data/prepared
-      md5: 03d41cb37d1af28bf8872ff36367765d.dir
-      size: 6871874
+      md5: a21aba1de60bcc0108326750d789ad47.dir
+      size: 4403350
       nfiles: 2
     - path: src/featurization.py
       md5: e0265fc22f056a4b86d85c3056bc2894
       size: 2490
     params:
       params.yaml:
-        featurize.max_features: 100
+        featurize.max_features: 70
         featurize.ngrams: 1
     outs:
     - path: data/features
-      md5: 128d4284aa37f58f92a84c9245f721a4.dir
-      size: 1277724
+      md5: 6ee8b493c499e4bc90fd96e53db0fea8.dir
+      size: 684145
       nfiles: 2
   train:
     cmd: python3 src/train.py data/features model.pkl
     deps:
     - path: data/features
-      md5: 128d4284aa37f58f92a84c9245f721a4.dir
-      size: 1277724
+      md5: 6ee8b493c499e4bc90fd96e53db0fea8.dir
+      size: 684145
       nfiles: 2
     - path: src/train.py
       md5: c3961d777cfbd7727f9fde4851896006
@@ -54,5 +54,5 @@ stages:
         train.seed: 20170428
     outs:
     - path: model.pkl
-      md5: 4b83b99d08cbbc20541754a3131a88ef
-      size: 1561657
+      md5: 4251dfac61ff677bde1dccf66ffccb80
+      size: 1357582
