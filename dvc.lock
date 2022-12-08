@@ -30,19 +30,19 @@ stages:
       size: 2490
     params:
       params.yaml:
-        featurize.max_features: 70
+        featurize.max_features: 75
         featurize.ngrams: 1
     outs:
     - path: data/features
-      md5: 6ee8b493c499e4bc90fd96e53db0fea8.dir
-      size: 684145
+      md5: 1ef0b953a615920a9d99b4f5ea7a0171.dir
+      size: 711455
       nfiles: 2
   train:
     cmd: python3 src/train.py data/features model.pkl
     deps:
     - path: data/features
-      md5: 6ee8b493c499e4bc90fd96e53db0fea8.dir
-      size: 684145
+      md5: 1ef0b953a615920a9d99b4f5ea7a0171.dir
+      size: 711455
       nfiles: 2
     - path: src/train.py
       md5: c3961d777cfbd7727f9fde4851896006
@@ -54,5 +54,5 @@ stages:
         train.seed: 20170428
     outs:
     - path: model.pkl
-      md5: 4251dfac61ff677bde1dccf66ffccb80
-      size: 1357582
+      md5: 6ac37ff05d3c89345bec19fe0385bd77
+      size: 1357717

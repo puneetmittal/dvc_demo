@@ -3,7 +3,7 @@ prepare:
   seed: 20170428
 
 featurize:
-  max_features: 70
+  max_features: 75
   ngrams: 1
 
 train:
